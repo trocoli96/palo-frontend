@@ -1,13 +1,25 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Button, Flex, Text } from '@chakra-ui/react';
+import { useAppContext } from '@utils/context/context';
+import { PROTECTED_ROUTES } from '@types/routes';
 
 export const Admin = () => {
+  const { logout } = useAppContext();
+  const navigate = useNavigate();
   return (
-    <Flex justifyContent="center" alignItems="center">
-      <Text>This is a page protected under the admin role</Text>
-      <Button>Logout</Button>
-      <Button>Go to User route</Button>
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      width="100vw"
+      height="100vh"
+      direction="column"
+      gap="8px"
+    >
+      <Text>This is the PROTECTED DASHBOARD from a logged admin</Text>
+      <Button onClick={() => navigate(PROTECTED_ROUTES.HOME)}>Go to Home</Button>
+      <Button onClick={logout}>Logout</Button>
     </Flex>
   );
 };

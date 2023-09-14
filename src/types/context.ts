@@ -1,8 +1,10 @@
 import { Session } from './auth';
+import { User } from './user';
 
 export interface ContextValues {
+  user?: User;
   session?: Session;
-  isLoggedIn?: boolean;
+  loading: boolean;
   // Add whatever information you want in the context
 }
 

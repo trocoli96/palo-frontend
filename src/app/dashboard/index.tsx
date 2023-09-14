@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { ProtectedRoute } from '@components/routes/protectedRoute/protectedRoute';
-import { PROTECTED_ROUTES } from '@utils/routes/routes';
+import { PROTECTED_ROUTES } from '@types/routes';
 
+import { Admin } from './pages/admin/admin';
 import { Home } from './pages/home/home';
 
 export const DashboardRoutes = [
@@ -18,7 +19,7 @@ export const DashboardRoutes = [
     path: PROTECTED_ROUTES.ADMIN,
     element: (
       <ProtectedRoute>
-        <Home />
+        <Admin />
       </ProtectedRoute>
     ),
   },

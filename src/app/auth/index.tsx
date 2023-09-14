@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { AnonymousRoute } from '@components/routes/anonymousRoute/anonymousRoute';
+import { UNPROTECTED_ROUTES } from '@types/routes';
 
-import { UNPROTECTED_ROUTES } from '../../utils/routes/routes';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 

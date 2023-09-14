@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { useAppContext } from '../../../utils/context/context';
-import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '../../../utils/routes/routes';
+import { LoaderScreen } from '@layouts/loader/loader';
+import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '@types/routes';
+import { useAppContext } from '@utils/context/context';
 
 /**
  * Renders route only for anonymous users
@@ -19,10 +20,15 @@ import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '../../../utils/routes/rout
  * ```
  */
 export const AnonymousRoute = ({ children }: { children?: ReactElement<any, any> }) => {
-  const { getLoggedIn } = useAppContext();
-  const isLoggedIn = getLoggedIn();
+  const { getUser, getLoading } = useAppContext();
+  const loading = getLoading();
+  const user = getUser();
 
-  if (isLoggedIn) {
+  if (loading) {
+    return <LoaderScreen />;
+  }
+
+  if (user) {
     return <Navigate to={PROTECTED_ROUTES.HOME} />;
   }
 

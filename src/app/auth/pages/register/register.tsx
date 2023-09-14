@@ -5,6 +5,7 @@ import { AuthHeader, AuthLayout, AuthTitle } from '@layouts/auth/components/auth
 import { useFormFields } from '../../../../hooks/useFormFields';
 import { api } from '../../../../utils/api/api';
 import styles from './../../styles/auth.module.css';
+import { AUTH_ENDPOINTS } from '@types/endpoints';
 
 export const Register = () => {
   const { handleSubmit, fields } = useFormFields([
@@ -27,7 +28,7 @@ export const Register = () => {
   ]);
 
   const onSubmit = async (data: any) => {
-    const result = await api.post('/api/v1/auth/email/register', { ...data });
+    const result = await api.post(AUTH_ENDPOINTS.REGISTER, { ...data });
     console.log(result);
     // Here you can perform further actions like sending data to a server.
   };

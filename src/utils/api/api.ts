@@ -1,8 +1,10 @@
+import { CookiesKeys } from '@types/cookies';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export const API_URL = 'http://localhost:3000';
 
-const token = 'TOKEN';
+const token = Cookies.get(CookiesKeys.TOKEN);
 
 export const api = axios.create({
   baseURL: API_URL,

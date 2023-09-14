@@ -6,6 +6,6 @@ export const UNPROTECTED_ROUTES = {
 };
 
 export const PROTECTED_ROUTES = {
-  HOME: `home`,
-  ADMIN: `admin`,
+  HOME: `/home`,
+  ADMIN: `/admin`,
 };
