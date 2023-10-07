@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ProtectedRoute } from '@components/routes/protectedRoute/protectedRoute';
-import { PROTECTED_ROUTES } from '@types/routes';
+import { PROTECTED_ROUTES } from '@types';
 
 import { Admin } from './pages/admin/admin';
 import { Home } from './pages/home/home';

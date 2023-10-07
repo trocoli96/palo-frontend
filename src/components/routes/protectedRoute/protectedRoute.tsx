@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { LoaderScreen } from '@layouts/loader/loader';
-import { AUTH_ROUTE, PROTECTED_ROUTES } from '@types/routes';
-import { Role } from '@types/user';
+import { AUTH_ROUTE, PROTECTED_ROUTES } from '@types';
+import { Role } from '@types';
 import { useAppContext } from '@utils/context/context';
 
 export type AuthRouteProps = {

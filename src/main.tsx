@@ -4,10 +4,10 @@ import { RouterProvider } from 'react-router-dom';
 
 import { ChakraProvider } from '@chakra-ui/react';
 import { LoaderScreen } from '@layouts/loader/loader';
-import { ContextValues } from '@types/context';
-import { CookiesKeys } from '@types/cookies';
-import { AUTH_ENDPOINTS } from '@types/endpoints';
-import { User } from '@types/user';
+import { ContextValues } from '@types';
+import { CookiesKeys } from '@types';
+import { AUTH_ENDPOINTS } from '@types';
+import { User } from '@types';
 import { api } from '@utils/api/api';
 import { AppProvider } from '@utils/context/context';
 import { AxiosResponse } from 'axios';
@@ -23,9 +23,12 @@ export const InitApp = () => {
   const token = getCookie(CookiesKeys.TOKEN);
 
   // Get /me info in case we have a token
-  const { data, isLoading } = useSWR<AxiosResponse<User>>(token && 'validate-cookie-token', () => {
-    return api.get(AUTH_ENDPOINTS.VALIDATE_TOKEN);
-  });
+  const { data, isLoading } = useSWR<AxiosResponse<User>>(
+    token ? 'validate-cookie-token' : null,
+    () => {
+      return api.get(AUTH_ENDPOINTS.VALIDATE_TOKEN);
+    },
+  );
 
   // Prepare initial context
   const initialContext: ContextValues = {
@@ -40,6 +43,7 @@ export const InitApp = () => {
     return <LoaderScreen />;
   }
 
+  // https://twitter.com/_georgemoller/status/1703935267327901722
   return (
     <AppProvider value={initialContext}>
       <ChakraProvider>

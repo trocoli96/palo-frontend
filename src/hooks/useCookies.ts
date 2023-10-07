@@ -5,11 +5,18 @@ import Cookies from 'js-cookie';
 type CookieValue = string | undefined;
 
 export function useCookies(): {
-  getCookie: (key: string) => CookieValue;
+  getCookie: (key: string) => CookieValue | null;
   setCookie: (key: string, value: string, options?: Cookies.CookieAttributes) => void;
   removeCookie: (key: string) => void;
 } {
-  const getCookie = (key: string): CookieValue => Cookies.get(key);
+  const getCookie = (key: string): CookieValue | null => {
+    const value = Cookies.get(key);
+    if (!value || value === 'undefined') {
+      Cookies.remove(key);
+      return null;
+    }
+    return value;
+  };
 
   const setCookie = (key: string, value: string, options?: Cookies.CookieAttributes) => {
     Cookies.set(key, value, options);

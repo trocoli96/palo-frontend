@@ -2,8 +2,10 @@ import React, { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { LoaderScreen } from '@layouts/loader/loader';
-import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '@types/routes';
+import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '@types';
 import { useAppContext } from '@utils/context/context';
+import { getPathnameDisplayName } from '@utils/routes/routes';
+import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
 
 /**
  * Renders route only for anonymous users
@@ -21,6 +23,8 @@ import { useAppContext } from '@utils/context/context';
  */
 export const AnonymousRoute = ({ children }: { children?: ReactElement<any, any> }) => {
   const { getUser, getLoading } = useAppContext();
+  const displayName = getPathnameDisplayName(window.location.pathname);
+  useDocumentTitle(displayName);
   const loading = getLoading();
   const user = getUser();
 

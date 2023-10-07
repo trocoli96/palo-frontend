@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, Flex, Text } from '@chakra-ui/react';
+import { PROTECTED_ROUTES } from '@types';
 import { useAppContext } from '@utils/context/context';
-import { PROTECTED_ROUTES } from '@types/routes';
 
 export const Admin = () => {
   const { logout } = useAppContext();

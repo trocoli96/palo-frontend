@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useMemo, useSyncExternalStore } from 'react';
 
-import { Session, SessionResponse } from '@types/auth';
-import { ContextType, ContextValues } from '@types/context';
-import { CookiesKeys } from '@types/cookies';
+import { Session, SessionResponse } from '@types';
+import { ContextType, ContextValues } from '@types';
+import { CookiesKeys } from '@types';
 
 import { useCookies } from '../../hooks/useCookies';
 import { useLazyRef } from '../../hooks/useLazyRef';
@@ -35,7 +35,9 @@ export const useAppContext = () => {
     authUser: (session: SessionResponse) => {
       store.setState('session', session);
       store.setState('user', session.user);
-      setCookie(CookiesKeys.TOKEN, session.token);
+      if (session.token) {
+        setCookie(CookiesKeys.TOKEN, session.token);
+      }
       setCookie(CookiesKeys.REFRESH_TOKEN, session.refreshToken);
     },
     logout: () => {

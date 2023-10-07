@@ -1,4 +1,4 @@
-import { CookiesKeys } from '@types/cookies';
+import { CookiesKeys } from '@types';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
