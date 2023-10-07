@@ -1,4 +1,6 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { Flex, Text } from '@chakra-ui/react';
@@ -11,63 +13,69 @@ import { useFormFields } from '../../../../hooks/useFormFields';
 
 export const Register = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation('auth');
   const { handleSubmit, fields } = useFormFields([
     {
       name: 'firstName',
-      rules: { required: 'First Name is required' },
+      rules: { required: t('firstNameRequired') },
     },
     {
       name: 'lastName',
-      rules: { required: 'Last Name is required' },
+      rules: { required: t('lastNameRequired') },
     },
     {
       name: 'email',
-      rules: { required: 'Email is required' },
+      rules: { required: t('emailRequired') },
     },
     {
       name: 'password',
-      rules: { required: 'Password is required' },
+      rules: { required: t('passwordRequired') },
     },
   ]);
 
   const onSubmit = async (data: any) => {
     const result = await api.post(AUTH_ENDPOINTS.REGISTER, { ...data });
-    console.log(result);
-    // Here you can perform further actions like sending data to a server.
+
+    if (result.status < 300) {
+      toast.success(t('successRegisteredMessage'));
+      navigate(UNPROTECTED_ROUTES.LOGIN);
+    } else {
+      toast.error(t('errorRegisteringMessage'));
+    }
   };
 
   return (
     <AuthLayout>
       <AuthHeader>
-        <AuthTitle>Register</AuthTitle>
+        <AuthTitle>{t('register')}</AuthTitle>
       </AuthHeader>
       <AuthFormContent onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <BaseInput type="text" {...fields.firstName} label="First name" />
+          <BaseInput type="text" {...fields.firstName} label={t('firstName')} />
           {fields.firstName.error && <span>{fields.firstName.error.message}</span>}
         </div>
         <div>
-          <BaseInput type="text" {...fields.lastName} label="Last name" />
+          <BaseInput type="text" {...fields.lastName} label={t('lastName')} />
           {fields.lastName.error && <span>{fields.lastName.error.message}</span>}
         </div>
         <div>
-          <BaseInput type="email" {...fields.email} label="Email address" />
+          <BaseInput type="email" {...fields.email} label={t('email')} />
           {fields.email.error && <span>{fields.email.error.message}</span>}
         </div>
         <div>
-          <BaseInput type="password" {...fields.password} label="Password" />
+          <BaseInput type="password" {...fields.password} label={t('password')} />
           {fields.password.error && <span>{fields.password.error.message}</span>}
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">{t('registerButton')}</button>
         <Flex justifyContent="center" gap="2px">
-          <Text fontSize="xs">Do you have an account already?</Text>
+          <Text fontSize="xs">{t('loginLinkText')}</Text>
           <Text
             decoration="underline"
             fontSize="xs"
             cursor="pointer"
             onClick={() => navigate(`../${UNPROTECTED_ROUTES.LOGIN}`)}
           >
-            Login
+            {t('loginLink')}
           </Text>
         </Flex>
       </AuthFormContent>
