@@ -61,7 +61,8 @@
     "backhomepage": "Back to Homepage",
     "showfilters": "Show filters",
     "additionalinformation": "Additional information",
-    "discardchanges": "Discard changes"
+    "discardchanges": "Discard changes",
+    "gotoadmin": "Go to admin"
   },
   "errors": {
     "authenticatinguser": "Error authenticating user",
@@ -99,7 +100,8 @@
     "dropzone": "Drag and drop files here, or click to select files",
     "moreoptions": "More options",
     "entitydeletedsuccessfully": "Deleted successfully",
-    "entityupdatedsuccessfully": "Updated successfully"
+    "entityupdatedsuccessfully": "Updated successfully",
+    "dashboardloggeduser": "This is the dashboard from a logged user"
   },
   "questions": {
     "deleteitemconfirmation": "Are you sure you want to delete this item?",

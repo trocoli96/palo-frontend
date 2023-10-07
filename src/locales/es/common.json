@@ -61,7 +61,8 @@
     "backhomepage": "Volver al inicio",
     "showfilters": "Mostrar filtros",
     "additionalinformation": "Información adicional",
-    "discardchanges": "Descartar cambios"
+    "discardchanges": "Descartar cambios",
+    "gotoadmin": "Ir al administrador"
   },
   "errors": {
     "authenticatinguser": "Error autenticando al usuario",
@@ -99,7 +100,8 @@
     "dropzone": "Arrastre ficheros aquí o haga click para seleccionar",
     "moreoptions": "More options",
     "entitydeletedsuccessfully": "Deleted successfully",
-    "entityupdatedsuccessfully": "Updated successfully"
+    "entityupdatedsuccessfully": "Updated successfully",
+    "dashboardloggeduser": "Este es el panel de usuario"
   },
   "questions": {
     "deleteitemconfirmation": "¿Está seguro de que desea eliminar este elemento?",

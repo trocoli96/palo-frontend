@@ -4,12 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Flex, Spinner, Text } from '@chakra-ui/react';
 import BaseInput from '@components/storybook/BaseInput/BaseInput';
-import {
-  AuthFormContent,
-  AuthHeader,
-  AuthLayout,
-  AuthTitle,
-} from '@layouts/auth/components/auth';
+import { AuthFormContent, AuthHeader, AuthLayout, AuthTitle } from '@layouts/auth/components/auth';
 import { SessionResponse } from '@types';
 import { AUTH_ENDPOINTS } from '@types';
 import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '@types';

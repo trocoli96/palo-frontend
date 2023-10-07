@@ -6,6 +6,7 @@ import { CookiesKeys } from '@types';
 
 import { useCookies } from '../../hooks/useCookies';
 import { useLazyRef } from '../../hooks/useLazyRef';
+import i18n from 'i18next';
 
 // @ts-ignore
 const AppContext = createContext<ContextType>(null);
@@ -35,6 +36,9 @@ export const useAppContext = () => {
     authUser: (session: SessionResponse) => {
       store.setState('session', session);
       store.setState('user', session.user);
+      if (session.user.local.code) {
+        i18n.changeLanguage(session.user.local.code);
+      }
       if (session.token) {
         setCookie(CookiesKeys.TOKEN, session.token);
       }
