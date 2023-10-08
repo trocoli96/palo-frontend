@@ -3,10 +3,10 @@ import React, { createContext, useContext, useMemo, useSyncExternalStore } from 
 import { Session, SessionResponse } from '@types';
 import { ContextType, ContextValues } from '@types';
 import { CookiesKeys } from '@types';
+import i18n from 'i18next';
 
 import { useCookies } from '../../hooks/useCookies';
 import { useLazyRef } from '../../hooks/useLazyRef';
-import i18n from 'i18next';
 
 // @ts-ignore
 const AppContext = createContext<ContextType>(null);

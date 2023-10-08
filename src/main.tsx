@@ -13,7 +13,6 @@ import { AppProvider } from '@utils/context/context';
 import { AxiosResponse } from 'axios';
 import useSWR from 'swr';
 
-import './App.css';
 import { AppRoutes } from './app';
 import { useCookies } from './hooks/useCookies';
 import './utils/i18n/i18n.ts';
@@ -30,8 +29,6 @@ export const InitApp = () => {
       return api.get(AUTH_ENDPOINTS.VALIDATE_TOKEN);
     },
   );
-
-  console.log(process.env.NODE_ENV);
 
   // Prepare initial context
   const initialContext: ContextValues = {

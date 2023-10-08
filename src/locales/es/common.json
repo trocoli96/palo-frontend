@@ -3,7 +3,7 @@
     "showSidebarButton": "Menú",
     "search": "Buscar",
     "tasks": "Tareas",
-    "logout": "Salir",
+    "logout": "Cerrar sesión",
     "home": "Página principal",
     "help": "Ayuda",
     "campaigns": "Campañas",
@@ -41,6 +41,9 @@
     "others": "Otros"
   },
   "buttons": {
+    "register": "Regístrate",
+    "clickhere": "Haz click aquí",
+    "login": "Acceder",
     "accept": "Aceptar",
     "cancel": "Cancelar",
     "close": "Cerrar",
@@ -62,7 +65,8 @@
     "showfilters": "Mostrar filtros",
     "additionalinformation": "Información adicional",
     "discardchanges": "Descartar cambios",
-    "gotoadmin": "Ir al administrador"
+    "gotoadmin": "Ir al administrador",
+    "gotohome": "Ir al menú principal"
   },
   "errors": {
     "authenticatinguser": "Error autenticando al usuario",
@@ -101,7 +105,9 @@
     "moreoptions": "More options",
     "entitydeletedsuccessfully": "Deleted successfully",
     "entityupdatedsuccessfully": "Updated successfully",
-    "dashboardloggeduser": "Este es el panel de usuario"
+    "dashboardloggeduser": "Este es el panel de usuario",
+    "dashboardloggedAdmin": "Este es el panel de administrador",
+    "forgetpassword": "¿Has olvidado tu contraseña?"
   },
   "questions": {
     "deleteitemconfirmation": "¿Está seguro de que desea eliminar este elemento?",

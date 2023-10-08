@@ -41,6 +41,9 @@
     "others": "Others"
   },
   "buttons": {
+    "register": "register",
+    "clickhere": "Click here",
+    "login": "Log in",
     "accept": "Accept",
     "cancel": "Cancel",
     "close": "Close",
@@ -62,7 +65,8 @@
     "showfilters": "Show filters",
     "additionalinformation": "Additional information",
     "discardchanges": "Discard changes",
-    "gotoadmin": "Go to admin"
+    "gotoadmin": "Go to admin",
+    "gotohome": "Go to home"
   },
   "errors": {
     "authenticatinguser": "Error authenticating user",
@@ -101,7 +105,9 @@
     "moreoptions": "More options",
     "entitydeletedsuccessfully": "Deleted successfully",
     "entityupdatedsuccessfully": "Updated successfully",
-    "dashboardloggeduser": "This is the dashboard from a logged user"
+    "dashboardloggeduser": "This is the dashboard from a logged user",
+    "dashboardloggedAdmin": "This is the PROTECTED DASHBOARD from a logged admin",
+    "forgetpassword": "Did you forget your password?"
   },
   "questions": {
     "deleteitemconfirmation": "Are you sure you want to delete this item?",
@@ -172,7 +178,7 @@
     "error": "Error",
     "user": "User",
     "users": "Users",
-    "email": "eMail",
+    "email": "Email",
     "yes": "Yes",
     "no": "No",
     "message": "Message",

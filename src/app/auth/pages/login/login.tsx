@@ -1,5 +1,6 @@
 import React from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { Flex, Spinner, Text } from '@chakra-ui/react';
@@ -17,14 +18,16 @@ import { useFormFields } from '../../../../hooks/useFormFields';
 export const Login = () => {
   const { authUser } = useAppContext();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { t: tAuth } = useTranslation('auth');
   const { handleSubmit, fields, formState } = useFormFields([
     {
       name: 'email',
-      rules: { required: 'Email is required' },
+      rules: { required: tAuth('emailRequired') },
     },
     {
       name: 'password',
-      rules: { required: 'Password is required' },
+      rules: { required: tAuth('passwordRequired') },
     },
   ]);
   const isSubmitting = formState.isSubmitting;
@@ -39,45 +42,45 @@ export const Login = () => {
         navigate(PROTECTED_ROUTES.HOME);
       }
     } catch {
-      toast.error('There was an error login in.');
+      toast.error(t('errors.authenticatinguser'));
     }
   };
 
   return (
     <AuthLayout>
       <AuthHeader>
-        <AuthTitle>Login</AuthTitle>
+        <AuthTitle>{tAuth('loginLink')}</AuthTitle>
       </AuthHeader>
       <AuthFormContent onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <BaseInput label="Email:" {...fields.email} />
+          <BaseInput label={`${t('word.email')}:`} {...fields.email} />
           {fields.email.error && <span>{fields.email.error.message}</span>}
         </div>
         <div>
-          <BaseInput label="Password: " type="password" {...fields.password} />
+          <BaseInput label={`${t('word.password')}:`} type="password" {...fields.password} />
           {fields.password.error && <span>{fields.password.error.message}</span>}
         </div>
-        {isSubmitting ? <Spinner /> : <button type="submit">Login</button>}
+        {isSubmitting ? <Spinner /> : <button type="submit">{t('buttons.login')}</button>}
         <Flex justifyContent="center" gap="2px">
-          <Text fontSize="xs">Did you forget your password?</Text>
+          <Text fontSize="xs">{t('message.forgetpassword')}</Text>
           <Text
             decoration="underline"
             fontSize="xs"
             cursor="pointer"
             onClick={() => navigate(`../${UNPROTECTED_ROUTES.FORGOT_PASSWORD}`)}
           >
-            Click here
+            {t('buttons.clickhere')}
           </Text>
         </Flex>
         <Flex justifyContent="center" gap="2px">
-          <Text fontSize="xs">Are you new?</Text>
+          <Text fontSize="xs">{tAuth('areyounew')}</Text>
           <Text
             decoration="underline"
             fontSize="xs"
             cursor="pointer"
             onClick={() => navigate(`../${UNPROTECTED_ROUTES.REGISTER}`)}
           >
-            Register
+            {tAuth('registerButton')}
           </Text>
         </Flex>
       </AuthFormContent>

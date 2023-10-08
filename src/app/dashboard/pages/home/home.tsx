@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, Flex, Text } from '@chakra-ui/react';
@@ -8,6 +9,8 @@ import { useAppContext } from '@utils/context/context';
 export const Home = () => {
   const { logout } = useAppContext();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   return (
     <Flex
       justifyContent="center"
@@ -17,9 +20,9 @@ export const Home = () => {
       direction="column"
       gap="8px"
     >
-      <Text>This is the dashboard from a logged user</Text>
-      <Button onClick={() => navigate(PROTECTED_ROUTES.ADMIN)}>Go to Admin</Button>
-      <Button onClick={logout}>Logout</Button>
+      <Text>{t('message.dashboardloggeduser')}</Text>
+      <Button onClick={() => navigate(PROTECTED_ROUTES.ADMIN)}>{t('buttons.gotoadmin')}</Button>
+      <Button onClick={logout}>{t('header.logout')}</Button>
     </Flex>
   );
 };
