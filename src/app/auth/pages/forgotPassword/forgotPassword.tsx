@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { Flex, Spinner, Text } from '@chakra-ui/react';
@@ -17,10 +18,11 @@ import { useFormFields } from '../../../../hooks/useFormFields';
 export const ForgotPassword = () => {
   const navigate = useNavigate();
   const [isConfirmed, setIsConfirmed] = useState<boolean>(false);
+  const { t: tAuth } = useTranslation('auth');
   const { handleSubmit, fields, formState } = useFormFields([
     {
       name: 'email',
-      rules: { required: 'Email is required' },
+      rules: { required: tAuth('emailRequired') },
     },
   ]);
   const isSubmitting = formState.isSubmitting;
@@ -37,7 +39,7 @@ export const ForgotPassword = () => {
         setIsConfirmed(true);
       }
     } catch {
-      toast.error('There was an error recovering password');
+      toast.error(tAuth('errorRecoveringPassword'));
     }
   };
 
@@ -46,22 +48,22 @@ export const ForgotPassword = () => {
       {isConfirmed ? (
         <AuthConfirmation
           title="Recovered"
-          message="You've received an email with the recover link"
-          actionLabel="Go to Login"
+          message={tAuth('successRecovered')}
+          actionLabel={tAuth('gotologin')}
           action={() => navigate(UNPROTECTED_ROUTES.LOGIN)}
         />
       ) : (
         <>
           <AuthLayout>
             <AuthHeader>
-              <AuthTitle>Forgot password?</AuthTitle>
+              <AuthTitle>{tAuth('forgotpassowrd')}</AuthTitle>
             </AuthHeader>
             <AuthFormContent onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <BaseInput label="Email:" {...fields.email} />
+                <BaseInput label={`${tAuth('email')}:`} {...fields.email} />
                 {fields.email.error && <span>{fields.email.error.message}</span>}
               </div>
-              {isSubmitting ? <Spinner /> : <button type="submit">Recover</button>}
+              {isSubmitting ? <Spinner /> : <button type="submit">{tAuth('recover')}</button>}
               <Flex justifyContent="center" gap="2px">
                 <Text
                   decoration="underline"
@@ -69,7 +71,7 @@ export const ForgotPassword = () => {
                   cursor="pointer"
                   onClick={() => navigate(`../${UNPROTECTED_ROUTES.LOGIN}`)}
                 >
-                  Back to login
+                  {tAuth('backToLogin')}
                 </Text>
               </Flex>
             </AuthFormContent>
