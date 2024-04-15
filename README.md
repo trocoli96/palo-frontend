@@ -7,6 +7,7 @@ Welcome to Palo Frontend, a React project powered by Vite, designed to be your g
 - **Authentication**: Secure and easy-to-use login and register functionality.
 - **User Context**: Manage user and admin views effortlessly through a well-structured context.
 - **Persistent Auth**: Auth information is stored in cookies for seamless reusability across sessions.
+- **Multi language support**: Prepared to start with the project in multiple languages
 
 ## Getting Started
 
