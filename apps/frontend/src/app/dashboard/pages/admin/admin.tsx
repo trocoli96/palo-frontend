@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Flex, Text } from '@chakra-ui/react';
-import { PROTECTED_ROUTES } from '@types';
-import { useAppContext } from '@utils/context/context';
+import { Button, Flex, Text } from 'ui';
+import { PROTECTED_ROUTES } from 'types';
+import { useAppContext } from 'utils';
 
 export const Admin = () => {
   const { logout } = useAppContext();
@@ -13,12 +13,7 @@ export const Admin = () => {
 
   return (
     <Flex
-      justifyContent="center"
-      alignItems="center"
-      width="100vw"
-      height="100vh"
-      direction="column"
-      gap="8px"
+      className="justify-center items-center w-screen h-screen flex-col gap-4"
     >
       <Text>{t('message.dashboardloggedAdmin')}</Text>
       <Button onClick={() => navigate(PROTECTED_ROUTES.HOME)}>{t('buttons.gotohome')}</Button>

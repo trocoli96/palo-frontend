@@ -3,17 +3,15 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { Flex, Spinner, Text } from '@chakra-ui/react';
-import BaseInput from '@components/storybook/BaseInput/BaseInput';
-import { AuthFormContent, AuthHeader, AuthLayout, AuthTitle } from '@layouts/auth/components/auth';
-import { AuthConfirmation } from '@layouts/auth/components/authConfirmation';
-import { SessionResponse } from '@types';
-import { AUTH_ENDPOINTS } from '@types';
-import { UNPROTECTED_ROUTES } from '@types';
-import { api } from '@utils/api/api';
+import { Button, Flex, Input, Spinner, Text } from 'ui';
+import { SessionResponse } from 'types';
+import { AUTH_ENDPOINTS } from 'types';
+import { UNPROTECTED_ROUTES } from 'types';
 import { AxiosResponse } from 'axios';
+import { api, useFormFields } from 'utils';
+import { AuthConfirmation } from '../../../../layouts/auth/components/authConfirmation';
+import { AuthFormContent, AuthHeader, AuthLayout, AuthTitle } from '../../../../layouts/auth/components/auth';
 
-import { useFormFields } from '../../../../hooks/useFormFields';
 
 export const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -56,19 +54,17 @@ export const ForgotPassword = () => {
         <>
           <AuthLayout>
             <AuthHeader>
-              <AuthTitle>{tAuth('forgotpassowrd')}</AuthTitle>
+              <AuthTitle>{tAuth('forgotpassword')}</AuthTitle>
             </AuthHeader>
             <AuthFormContent onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <BaseInput label={`${tAuth('email')}:`} {...fields.email} />
+                <Input label={`${tAuth('email')}:`} {...fields.email} />
                 {fields.email.error && <span>{fields.email.error.message}</span>}
               </div>
-              {isSubmitting ? <Spinner /> : <button type="submit">{tAuth('recover')}</button>}
-              <Flex justifyContent="center" gap="2px">
+              {isSubmitting ? <Spinner /> : <Button type="submit">{tAuth('recover')}</Button>}
+              <Flex className="justify-center gap-2">
                 <Text
-                  decoration="underline"
-                  fontSize="xs"
-                  cursor="pointer"
+                  className="underline text-xs cursor-pointer"
                   onClick={() => navigate(`../${UNPROTECTED_ROUTES.LOGIN}`)}
                 >
                   {tAuth('backToLogin')}

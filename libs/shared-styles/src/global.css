@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    :root {
+        --background: #fff;
+        --canvaLight: rgba(0,196,204,1);
+        --canvaDark: rgba(100,32,255,1);
+        --foreground: #020817;
+        --card: #fff;
+        --card-foreground: #020817;
+        --popover: #fff;
+        --popover-foreground: #020817;
+        --primary: #020817;
+        --primary-foreground: #f8fafc;
+        --canva: #EBECF0;
+        --secondary: #eff6ff;
+        --secondary-100: #dbeafe;
+        --secondary-foreground: #93c5fd;
+        --muted: #fafafa;
+        --muted-foreground: #71717a;
+        --unactive: #64748b;
+        --accent: #f1f5f9;
+        --accent-foreground: #0f1729;
+        --destructive: #ef4343;
+        --destructive-foreground: #f8fafc;
+        --pause: #ef8543;
+        --pause-foreground: #f8fafc;
+        --border: #e1e7ef;
+        --input: #e1e7ef;
+        --ring: #2463eb;
+        --success: #10B981;
+        --success-muted: #6EE7B7;
+        --banner-blue: #eff6ff;
+        --banner-border: #dbeafe;
+        --radius: 0.3rem;
+    }
+
+    .dark {
+        --background: #020817;
+        --canvaLight: rgba(0,196,204,1);
+        --canvaDark: rgba(100,32,255,1);
+        --foreground: #f8fafc;
+        --card: #020817;
+        --card-foreground: #f8fafc;
+        --popover: #020817;
+        --popover-foreground: #f8fafc;
+        --primary: #020817;
+        --primary-foreground: #0f1729;
+        --canva: #0b1525;
+        --secondary: #1d2839;
+        --secondary-100: #112336;
+        --secondary-foreground: #f8fafc;
+        --unactive: #64748b;
+        --muted: #1d2839;
+        --muted-foreground: #94a3b8;
+        --accent: #1d2839;
+        --accent-foreground: #f8fafc;
+        --pause: #9d562b;
+        --pause-foreground: #f8fafc;
+        --destructive: #7d1c1c;
+        --destructive-foreground: #f8fafc;
+        --border: #1d2839;
+        --input: #1d2839;
+        --ring: #1d4fd7;
+        --success: #10B981;
+        --banner-blue: #1B399B;
+        --banner-border: #183186;
+        --success-muted: #6EE7B7;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}

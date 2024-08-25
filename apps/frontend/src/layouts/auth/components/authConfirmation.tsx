@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Button, Text } from '@chakra-ui/react';
-import { AuthContent, AuthHeader, AuthLayout, AuthTitle } from '@layouts/auth/components/auth';
+import { Button, Text } from 'ui';
+import { AuthContent, AuthHeader, AuthLayout, AuthTitle } from './auth';
 
 interface AuthConfirmationProps {
   title: string;

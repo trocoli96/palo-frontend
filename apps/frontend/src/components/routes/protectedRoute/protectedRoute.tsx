@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { LoaderScreen } from '@layouts/loader/loader';
-import { AUTH_ROUTE, PROTECTED_ROUTES } from '@types';
-import { Role } from '@types';
-import { useAppContext } from '@utils/context/context';
+import { AUTH_ROUTE, PROTECTED_ROUTES } from 'types';
+import { Role } from 'types';
+import { useAppContext } from 'utils';
+import { LoaderScreen } from '../../../layouts/loader/loader';
 
 export type AuthRouteProps = {
   allowedRoles?: Role | Role[];

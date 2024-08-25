@@ -36,6 +36,11 @@
       "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "none"
+    },
+    "@nx/react": {
+      "library": {
+        "unitTestRunner": "none"
+      }
     }
   },
   "targetDefaults": {

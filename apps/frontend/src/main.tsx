@@ -3,17 +3,14 @@ import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { RouterProvider } from 'react-router-dom';
 
-import { ChakraProvider } from '@chakra-ui/react';
-import { LoaderScreen } from '@layouts/loader/loader';
-import { AUTH_ENDPOINTS, ContextValues, CookiesKeys, ModalState, SessionResponse } from '@types';
-import { noTokenApi } from '@utils/api/api';
-import { AppProvider } from '@utils/context/context';
+import { AUTH_ENDPOINTS, ContextValues, CookiesKeys, ModalState, SessionResponse } from 'types';
 import { AxiosResponse } from 'axios';
 import useSWR, { SWRConfig } from 'swr';
 
 import { AppRoutes } from './app';
-import { useCookies } from './hooks/useCookies';
-import './utils/i18n/i18n';
+import 'utils';
+import { AppProvider, noTokenApi, useCookies } from 'utils';
+import { LoaderScreen } from './layouts/loader/loader';
 
 export const InitApp = () => {
   // Check if we already have a stored token
@@ -94,7 +91,6 @@ export const InitApp = () => {
   // https://twitter.com/_georgemoller/status/1703935267327901722
   return (
     <AppProvider value={initialContext}>
-      <ChakraProvider>
         <SWRConfig
           value={{
             revalidateOnFocus: false,
@@ -103,7 +99,6 @@ export const InitApp = () => {
           <RouterProvider router={AppRoutes} />
           <Toaster position="bottom-right" />
         </SWRConfig>
-      </ChakraProvider>
     </AppProvider>
   );
 };

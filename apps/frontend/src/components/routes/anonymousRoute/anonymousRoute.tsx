@@ -1,11 +1,9 @@
 import React, { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { LoaderScreen } from '@layouts/loader/loader';
-import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from '@types';
-import { useAppContext } from '@utils/context/context';
-import { getPathnameDisplayName } from '@utils/routes/routes';
-import { useDocumentTitle } from '../../../hooks/useDocumentTitle';
+import { PROTECTED_ROUTES, UNPROTECTED_ROUTES } from 'types';
+import { getPathnameDisplayName, useDocumentTitle, useAppContext } from 'utils';
+import { LoaderScreen } from '../../../layouts/loader/loader';
 
 /**
  * Renders route only for anonymous users

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { AnonymousRoute } from '@components/routes/anonymousRoute/anonymousRoute';
-import { UNPROTECTED_ROUTES } from '@types';
+import { UNPROTECTED_ROUTES } from 'types';
 
 import { ForgotPassword } from './pages/forgotPassword/forgotPassword';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
+import { AnonymousRoute } from '../../components/routes/anonymousRoute/anonymousRoute';
 
 export const AuthRoutes = [
   {
