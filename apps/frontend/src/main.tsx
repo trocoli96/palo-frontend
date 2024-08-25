@@ -6,13 +6,13 @@ import { RouterProvider } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import { LoaderScreen } from '@layouts/loader/loader';
 import { AUTH_ENDPOINTS, ContextValues, CookiesKeys, ModalState, SessionResponse } from '@types';
-import { noTokenApi } from '@utils/api/api.ts';
+import { noTokenApi } from '@utils/api/api';
 import { AppProvider } from '@utils/context/context';
 import { AxiosResponse } from 'axios';
 import useSWR, { SWRConfig } from 'swr';
 
 import { AppRoutes } from './app';
-import { useCookies } from './hooks/useCookies.ts';
+import { useCookies } from './hooks/useCookies';
 import './utils/i18n/i18n';
 
 export const InitApp = () => {

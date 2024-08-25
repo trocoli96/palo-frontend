@@ -1,6 +1,6 @@
 import { Session } from './auth';
-import { ApplicationModals } from './modals.ts';
-import { User } from './user.ts';
+import { ApplicationModals } from './modals';
+import { User } from './user';
 
 type ModalStateValue = {
   isOpen: boolean;

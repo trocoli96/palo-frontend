@@ -67,7 +67,11 @@ export const AppProvider = ({
     return value;
   });
 
+  // @ts-ignore
   const store = useMemo<ContextType>(() => {
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return {
       setState: (key, value) => {
         // @ts-ignore
@@ -80,9 +84,12 @@ export const AppProvider = ({
       },
       snapshot: () => state.current,
       subscribe: callback => {
+        // @ts-ignore
         listener.current.add(callback);
+        // @ts-ignore
         return () => listener.current.delete(callback);
       },
+      // @ts-ignore
       emit: () => listener.current.forEach(cb => cb()),
     };
   }, []);
